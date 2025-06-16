@@ -1,36 +1,68 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Remote Control Center
 
-## Getting Started
+---
 
-First, run the development server:
+## Table of Contents
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+- [Overview](#overview)
+- [Quickstart](#quickstart)
+- [Styling](#styling)
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Overview
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+**Remote Control Center** is a personal project and proof-of-concept web application for managing and connecting to remote virtual machines (VMs) via SSH.  
+The goal is to provide a simple interface for adding, viewing, and removing VMs, and to execute commands on them from a web UI.
 
-## Learn More
+**Key Features:**
 
-To learn more about Next.js, take a look at the following resources:
+- Full-stack app using React (frontend) and Express (backend)
+- Stores VM connection info in a SQLite database
+- Executes SSH commands from the backend
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+**Current Limitations:**
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- No authentication or user separation: all VM data is shared among all users
+- Not intended for production or real-world use
+- Sensitive information should not be stored in the database in this state
 
-## Deploy on Vercel
+**Future Plans:**
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Implement user authentication and per-user data separation
+- Improve security and error handling
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## Quickstart
+
+This project is not yet ready for general use or deployment.  
+The following steps are for documentation and development reference only.
+
+### Project Structure
+
+- `/client` — React frontend (UI for managing VMs)
+- `/server` — Express backend (API, SSH logic, database)
+- `/server/vms.sqlite` — SQLite database (stores VM info)
+
+### How It Works
+
+1. The backend provides API endpoints for managing VMs and executing SSH commands.
+2. The frontend allows users to add, view, and delete VMs.
+3. All VM data is stored in a single SQLite database on the server.
+4. **Currently, all users share the same data.**
+
+---
+
+## Styling
+
+The frontend uses [Tailwind CSS](https://tailwindcss.com/) for styling.  
+Styles can be customized in `client/src/app/globals.css` or by editing Tailwind classes in the React components.
+
+---
+
+## Disclaimer
+
+This project is for educational and demonstration purposes only.  
+It is not secure for real-world use and should not be used to store or manage sensitive information.  
+User authentication and improved security are planned
