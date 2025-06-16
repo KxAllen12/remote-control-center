@@ -22,6 +22,10 @@ yarn-error.log*
 .env
 .env.local
 .env.*.local
+server/.env
+
+# Database files
+server/vms.sqlite
 
 # dependencies
 /.pnp
